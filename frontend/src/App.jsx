@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-const API_URL = 'http://localhost:5000/api/videos'
+const API_URL =
+  import.meta.env.VITE_API_URL || 'http://localhost:5000/api/videos'
 function getYouTubeEmbedUrl(url) {
   try {
     const parsed = new URL(url)
