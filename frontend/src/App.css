@@ -677,3 +677,384 @@ footer > span {
   height: 100%;
   border: 0;
 }
+/* ===== STUDENT MEDIA HUB: MODERN DARK THEME ===== */
+
+:root {
+  color: #eef2ff;
+  background: #080d1b;
+  color-scheme: dark;
+}
+
+body {
+  color: #eef2ff;
+  background: #080d1b;
+}
+
+.app {
+  max-width: 1440px;
+  background: #080d1b;
+}
+
+/* Navigation */
+.navbar {
+  background: #0c1325;
+  border-bottom: 1px solid #202b47;
+}
+
+.brand {
+  color: #f3f5ff;
+}
+
+.brand-icon {
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  box-shadow: 0 0 22px #7c3aed35;
+}
+
+.navbar nav {
+  color: #a4b0cc;
+}
+
+.navbar nav a:hover,
+.navbar nav .nav-active {
+  color: #a78bfa;
+}
+
+.nav-button {
+  color: #fff;
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px #7c3aed40;
+}
+
+/* Hero section */
+.hero-section {
+  background:
+    radial-gradient(ellipse at 80% 30%, #31205a66, transparent 42%),
+    radial-gradient(ellipse at 10% 90%, #123a7055, transparent 45%),
+    #0b1224;
+}
+
+.eyebrow {
+  color: #a78bfa;
+}
+
+.hero-content h1 {
+  color: #f5f7ff;
+}
+
+.hero-content h1 span {
+  color: #8b9cff;
+}
+
+.hero-content > p {
+  color: #a5b1cc;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
+  box-shadow: 0 7px 22px #5b21b640;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.primary-button:hover {
+  background: linear-gradient(135deg, #6d28d9, #2563eb);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px #5b21b655;
+}
+
+.hero-note {
+  color: #9aa7c4;
+}
+
+.circle-one {
+  background: #22234d;
+}
+
+.circle-two {
+  border-color: #6255a6;
+}
+
+.video-preview {
+  background: linear-gradient(145deg, #6d4aff, #174ea6 65%, #101b3b);
+  border-color: #202b47;
+  box-shadow: 0 25px 60px #00000055;
+}
+
+.floating-card {
+  color: #e8edff;
+  background: #151e35;
+  border-color: #303c5c;
+  box-shadow: 0 12px 35px #00000040;
+}
+
+/* Video library */
+.videos-section {
+  background: #080d1b;
+}
+
+.section-heading h2,
+.about-section h2 {
+  color: #f3f5ff;
+}
+
+.section-heading h2 span {
+  color: #8b9cff;
+}
+
+.section-heading p,
+.about-section p {
+  color: #a0acc7;
+}
+
+.video-count strong {
+  color: #dce5ff;
+}
+
+.video-count span {
+  color: #8998b8;
+}
+
+/* Search field */
+.search-box {
+  background: #10192d;
+  border-color: #293654;
+  box-shadow: 0 8px 25px #00000012;
+}
+
+.search-box:focus-within {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px #8b5cf620;
+}
+
+.search-box > span {
+  color: #a78bfa;
+}
+
+.search-box input {
+  color: #eef2ff;
+}
+
+.search-box input::placeholder {
+  color: #8290ad;
+}
+
+/* Category filters */
+.category {
+  color: #bac5df;
+  background: #111a30;
+  border-color: #293654;
+}
+
+.category:hover,
+.category.active {
+  color: #fff;
+  background: linear-gradient(135deg, #7c3aed, #365ee8);
+  border-color: #8060f6;
+  box-shadow: 0 5px 18px #6d28d930;
+}
+
+/* Video cards */
+.video-grid {
+  gap: 26px;
+}
+
+.video-card {
+  background: #10182b;
+  border-color: #25314d;
+  border-radius: 17px;
+  box-shadow: 0 8px 25px #00000018;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  border-color: #6852b8;
+  box-shadow: 0 18px 40px #00000045, 0 0 18px #7c3aed12;
+}
+
+/* Decorative video artwork */
+.video-art {
+  background-image: linear-gradient(135deg, #35205e, #15376b);
+}
+
+.video-art.purple,
+.purple {
+  background: linear-gradient(135deg, #39215f, #202f68);
+}
+
+.video-art.pink,
+.pink {
+  background: linear-gradient(135deg, #54274f, #292b60);
+}
+
+.video-art.blue,
+.blue {
+  background: linear-gradient(135deg, #163c69, #26336b);
+}
+
+.video-art.orange,
+.orange {
+  background: linear-gradient(135deg, #57365d, #263d70);
+}
+
+.video-art::before,
+.video-art::after {
+  border-color: #ffffff20;
+}
+
+.video-number,
+.art-caption {
+  color: #eef2ff;
+}
+
+.art-caption {
+  background: #111a30cc;
+  border: 1px solid #ffffff18;
+}
+
+.video-emoji {
+  filter: drop-shadow(0 8px 14px #00000035);
+}
+
+.play-button {
+  color: #fff;
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  box-shadow: 0 5px 20px #00000045;
+  transition: transform 0.2s;
+}
+
+.video-card:hover .play-button {
+  transform: scale(1.08);
+}
+
+/* Video details */
+.video-info h3 {
+  color: #f1f4ff;
+}
+
+.video-info > p {
+  color: #a1aec9;
+}
+
+.video-meta {
+  color: #9eabc6;
+}
+
+.video-meta > span:first-child {
+  color: #c4b5fd;
+  background: #302452;
+}
+
+.video-meta > span:last-child {
+  color: #fbbf78;
+}
+
+.review-button {
+  color: #a78bfa;
+  border-top-color: #28334d;
+  transition: color 0.2s;
+}
+
+.review-button:hover {
+  color: #60a5fa;
+}
+
+/* Empty search results */
+.empty-state {
+  color: #eef2ff;
+  background: #10182b;
+  border-color: #25314d;
+}
+
+.empty-state h3 {
+  color: #f1f4ff;
+}
+
+.empty-state p {
+  color: #a1aec9;
+}
+
+/* About section */
+.about-section {
+  background:
+    radial-gradient(ellipse at 50% 0%, #29205a66, transparent 65%),
+    #0e162a;
+  border-top: 1px solid #202b47;
+  border-bottom: 1px solid #202b47;
+}
+
+.about-section > span {
+  color: #a78bfa;
+}
+
+/* Footer */
+footer {
+  color: #e7ebff;
+  background: #090f1e;
+}
+
+footer > span {
+  color: #8e9bb7;
+}
+
+/* Reviews and form controls */
+input,
+textarea,
+select {
+  color: #eef2ff;
+  background-color: #10192d;
+  border-color: #34415f;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #8290ad;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 1px solid #8b5cf6;
+  border-color: #8b5cf6;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 3px;
+}
+
+/* Keep embedded video playback working */
+.embedded-player {
+  background: #05070d;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.embedded-player iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Mobile layout */
+@media (max-width: 760px) {
+  .hero-section {
+    background:
+      radial-gradient(ellipse at 50% 20%, #31205a55, transparent 60%),
+      #0b1224;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-card:hover {
+    transform: translateY(-2px);
+  }
+}
