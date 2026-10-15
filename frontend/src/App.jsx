@@ -386,24 +386,40 @@ if (!response.ok) {
     }
   />
 
-  <select
-    value={reviewForms[video._id]?.rating ?? '5'}
-    onChange={(event) =>
-      setReviewForms((previous) => ({
-        ...previous,
-        [video._id]: {
-          ...previous[video._id],
-          rating: Number(event.target.value),
-        },
-      }))
-    }
-  >
-    <option value="1">1 Star</option>
-<option value="2">2 Stars</option>
-<option value="3">3 Stars</option>
-<option value="4">4 Stars</option>
-<option value="5">5 Stars</option>
-  </select>
+   <div className="star-rating-input">
+    <span className="rating-label">Your rating</span>
+    <div className="star-options">
+      {[1, 2, 3, 4, 5].map((star) => (
+        <button
+          key={star}
+          type="button"
+          className={
+            star <= Number(reviewForms[video._id]?.rating ?? 5)
+              ? 'star-option selected'
+              : 'star-option'
+          }
+          onClick={() =>
+            setReviewForms((previous) => ({
+              ...previous,
+              [video._id]: {
+                ...previous[video._id],
+                rating: star,
+              },
+            }))
+          }
+          aria-label={`${star} star${star > 1 ? 's' : ''}`}
+          aria-pressed={
+            Number(reviewForms[video._id]?.rating ?? 5) === star
+          }
+        >
+          ★
+        </button>
+      ))}
+    </div>
+    <span className="rating-hint">
+      {Number(reviewForms[video._id]?.rating ?? 5)} out of 5 stars
+    </span>
+  </div>
 
   <textarea
     placeholder="Write your review..."
