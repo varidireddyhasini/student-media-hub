@@ -1058,3 +1058,61 @@ a:focus-visible {
     transform: translateY(-2px);
   }
 }
+/* Gold star rating selector */
+.star-rating-input {
+  margin: 18px 0;
+  padding: 16px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.65);
+}
+
+.rating-label,
+.rating-hint {
+  display: block;
+  color: #cbd5e1;
+  font-size: 13px;
+}
+
+.rating-label {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.star-options {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.star-option {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #475569;
+  font-size: 32px;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.star-option.selected {
+  color: #fbbf24;
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.25);
+}
+
+.star-option:hover {
+  color: #fcd34d;
+  transform: scale(1.15);
+}
+
+.star-option:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.rating-hint {
+  margin-top: 8px;
+  color: #fbbf24;
+}
