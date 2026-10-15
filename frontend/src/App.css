@@ -1116,3 +1116,17 @@ a:focus-visible {
   margin-top: 8px;
   color: #fbbf24;
 }
+.star-option {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #475569;
+  font-size: 32px;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.star-option.selected {
+  color: #fbbf24 !important;
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.5);
+}
