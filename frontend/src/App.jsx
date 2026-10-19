@@ -43,7 +43,7 @@ function App() {
   
   const [reviewForms, setReviewForms] = useState({})
   const [reviewMessages, setReviewMessages] = useState({})
-
+  const [activeReviewVideoId, setActiveReviewVideoId] = useState(null)
   async function submitReview(videoId) {
     const review = reviewForms[videoId] || {
       studentName: '',
