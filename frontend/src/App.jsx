@@ -382,7 +382,7 @@ if (!response.ok) {
  </article>
  ))}
  </div>
-                    
+  )}                 
 
           {activeReviewVideoId && (() => {
             const video = videos.find(
