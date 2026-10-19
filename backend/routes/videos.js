@@ -41,6 +41,28 @@ router.get('/:id', async (req, res) => {
   }
 })
 
+router.delete('/:id', async (req, res) => {
+  try {
+    const video = await Video.findByIdAndDelete(req.params.id)
+
+    if (!video) {
+      return res.status(404).json({
+        message: 'Video not found',
+      })
+    }
+
+    res.json({
+      message: 'Video deleted successfully',
+      videoId: video._id,
+    })
+  } catch (error) {
+    res.status(500).json({
+      message: 'Error deleting video',
+      error: error.message,
+    })
+  }
+})
+
 // ADD a video
 router.post('/', async (req, res) => {
   try {
