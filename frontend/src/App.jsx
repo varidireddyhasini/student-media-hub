@@ -376,12 +376,12 @@ if (!response.ok) {
 
   <span>
     {video.reviews?.length ?? 0} reviews
-  </span>
-</div>
-</div>
-</article>
-))}
-</div>
+   </span>
+ </div>
+ </div>
+ </article>
+ ))}
+ </div>
                     
 
           {activeReviewVideoId && (() => {
