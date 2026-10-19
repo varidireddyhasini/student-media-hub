@@ -235,6 +235,7 @@ if (!response.ok) {
               <p>Videos loaded from your Student Media Hub database.</p>
             </div>
 
+            
             <div className="video-count">
               <strong>
                 {filteredVideos.length.toString().padStart(2, '0')}
@@ -355,18 +356,29 @@ if (!response.ok) {
                     <h3>{video.title}</h3>
                     <p>{video.description}</p>
 
-                    <div className="review-button">
-                      <a
-                        href={video.videoUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Watch Video ↗
-                      </a>
-                      <span>
-                        {video.reviews?.length ?? 0} reviews
-                      </span>
-                    </div>
+                   
+<div className="review-button">
+  <a
+    href={video.videoUrl}
+    target="_blank"
+    rel="noreferrer"
+  >
+    Watch Video ↗
+  </a>
+
+  <button
+    type="button"
+    className="rate-video-button"
+    onClick={() => setActiveReviewVideoId(video._id)}
+  >
+    ⭐ Rate This Video
+  </button>
+
+  <span>
+    {video.reviews?.length ?? 0} reviews
+  </span>
+</div>
+
                     
 
           {activeReviewVideoId && (() => {
@@ -548,6 +560,7 @@ if (!response.ok) {
       </main>
 
       <footer>
+              
         <a className="brand" href="#home">
           <span className="brand-icon">▶</span>
           FieldReel
