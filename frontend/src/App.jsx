@@ -368,91 +368,152 @@ if (!response.ok) {
                       </span>
                     </div>
                     
-<div className="student-review-form">
-  <h4>Rate this video</h4>
 
-  <input
-    type="text"
-    placeholder="Your name"
-    value={reviewForms[video._id]?.studentName ?? ''}
-    onChange={(event) =>
-      setReviewForms((previous) => ({
-        ...previous,
-        [video._id]: {
-          ...previous[video._id],
-          studentName: event.target.value,
-        },
-      }))
-    }
-  />
+          {activeReviewVideoId && (() => {
+            const video = videos.find(
+              (item) => item._id === activeReviewVideoId
+            )
 
-   <div className="star-rating-input">
-    <span className="rating-label">Your rating</span>
-    <div className="star-options">
-      {[1, 2, 3, 4, 5].map((star) => (
-        <button
-          key={star}
-          type="button"
-          className={
-            star <= Number(reviewForms[video._id]?.rating ?? 5)
-              ? 'star-option selected'
-              : 'star-option'
-          }
-          onClick={() =>
-            setReviewForms((previous) => ({
-              ...previous,
-              [video._id]: {
-                ...previous[video._id],
-                rating: star,
-              },
-            }))
-          }
-          aria-label={`${star} star${star > 1 ? 's' : ''}`}
-          aria-pressed={
-            Number(reviewForms[video._id]?.rating ?? 5) === star
-          }
-        >
-          ★
-        </button>
-      ))}
-    </div>
-    <span className="rating-hint">
-      {Number(reviewForms[video._id]?.rating ?? 5)} out of 5 stars
-    </span>
-  </div>
+            if (!video) return null
 
-  <textarea
-    placeholder="Write your review..."
-    value={reviewForms[video._id]?.comment ?? ''}
-    onChange={(event) =>
-      setReviewForms((previous) => ({
-        ...previous,
-        [video._id]: {
-          ...previous[video._id],
-          comment: event.target.value,
-        },
-      }))
-    }
-  />
+            const review = reviewForms[video._id] || {
+              studentName: '',
+              rating: '5',
+              comment: '',
+            }
 
-  <button
-    type="button"
-    className="primary-button"
-    onClick={() => submitReview(video._id)}
-  >
-    Submit Review
-  </button>
+            return (
+              <div
+                className="review-modal-backdrop"
+                onClick={() => setActiveReviewVideoId(null)}
+              >
+                <section
+                  className="review-modal"
+                  role="dialog"
+                  aria-modal="true"
+                  aria-labelledby="review-modal-title"
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <button
+                    type="button"
+                    className="review-modal-close"
+                    onClick={() => setActiveReviewVideoId(null)}
+                  >
+                    ×
+                  </button>
 
-  {reviewMessages[video._id] && (
-    <p>{reviewMessages[video._id]}</p>
-  )}
-</div>
+                  <span className="eyebrow">STUDENT REVIEWS</span>
+                  <h2 id="review-modal-title">{video.title}</h2>
+                  <p>{video.description}</p>
 
+                  <div className="review-summary">
+                    <strong>★ {video.averageRating ?? 0} / 5</strong>
+                    <span>{video.reviews?.length ?? 0} reviews</span>
                   </div>
-                </article>
-              ))}
-            </div>
-          )}
+
+                  <h3>Student feedback</h3>
+
+                  <div className="review-list">
+                    {video.reviews?.length ? (
+                      video.reviews.map((item, index) => (
+                        <div className="review-card" key={item._id || index}>
+                          <strong>{item.studentName}</strong>
+                          <div className="review-card-stars">
+                            {'★'.repeat(Number(item.rating) || 0)}
+                            {'☆'.repeat(5 - (Number(item.rating) || 0))}
+                          </div>
+                          <p>{item.comment}</p>
+                          {item.createdAt && (
+                            <small>
+                              {new Date(item.createdAt).toLocaleDateString()}
+                            </small>
+                          )}
+                        </div>
+                      ))
+                    ) : (
+                      <p>No reviews yet. Be the first to review!</p>
+                    )}
+                  </div>
+
+                  <div className="student-review-form">
+                    <h3>Write your review</h3>
+
+                    <input
+                      type="text"
+                      placeholder="Your name"
+                      value={review.studentName}
+                      onChange={(event) =>
+                        setReviewForms((previous) => ({
+                          ...previous,
+                          [video._id]: {
+                            ...(previous[video._id] || {}),
+                            studentName: event.target.value,
+                          },
+                        }))
+                      }
+                    />
+
+                    <div className="star-rating-input">
+                      <span className="rating-label">Your rating</span>
+                      <div className="star-options">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <button
+                            key={star}
+                            type="button"
+                            className={
+                              star <= Number(review.rating)
+                                ? 'star-option selected'
+                                : 'star-option'
+                            }
+                            onClick={() =>
+                              setReviewForms((previous) => ({
+                                ...previous,
+                                [video._id]: {
+                                  ...(previous[video._id] || {}),
+                                  rating: String(star),
+                                },
+                              }))
+                            }
+                          >
+                            ★
+                          </button>
+                        ))}
+                      </div>
+                      <span className="rating-hint">
+                        {Number(review.rating)} out of 5 stars
+                      </span>
+                    </div>
+
+                    <textarea
+                      placeholder="Write your review..."
+                      value={review.comment}
+                      onChange={(event) =>
+                        setReviewForms((previous) => ({
+                          ...previous,
+                          [video._id]: {
+                            ...(previous[video._id] || {}),
+                            comment: event.target.value,
+                          },
+                        }))
+                      }
+                    />
+
+                    <button
+                      type="button"
+                      className="primary-button"
+                      onClick={() => submitReview(video._id)}
+                    >
+                      Submit Review
+                    </button>
+
+                    {reviewMessages[video._id] && (
+                      <p>{reviewMessages[video._id]}</p>
+                    )}
+                  </div>
+                </section>
+              </div>
+            )
+          })()}
 
           {!loading && !error && filteredVideos.length === 0 && (
             <div className="empty-state">
@@ -490,6 +551,7 @@ if (!response.ok) {
         <a className="brand" href="#home">
           <span className="brand-icon">▶</span>
           FieldReel
+          
         </a>
         <span>
           Student Media Hub · Learn something worth sharing.
