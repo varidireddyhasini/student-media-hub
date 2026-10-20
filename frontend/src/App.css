@@ -1295,37 +1295,3 @@ a:focus-visible {
   }
 }
 
-/* Category filter buttons */
-.category-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 24px 0;
-}
-
-.category-button {
-  padding: 10px 20px;
-  border: 1px solid rgba(139, 92, 246, 0.35);
-  border-radius: 24px;
-  background: #11172b;
-  color: #d1d5e8;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.category-button:hover {
-  background: #252044;
-  border-color: #8b5cf6;
-  color: #ffffff;
-  transform: translateY(-2px);
-}
-
-.category-button.active {
-  background: linear-gradient(135deg, #7c3aed, #2563eb);
-  border-color: transparent;
-  color: #ffffff;
-  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
-}
-
