@@ -380,7 +380,7 @@ if (!response.ok) {
 
 <button
   type="button"
-  className="share-video-button"
+  className="rate-video-button"
   onClick={async () => {
     const shareData = {
       title: video.title,
