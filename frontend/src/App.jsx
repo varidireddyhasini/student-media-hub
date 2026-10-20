@@ -123,6 +123,7 @@ if (!response.ok) {
         )
       })
       .finally(() => setLoading(false))
+    
   }, [])
 
   const categories = [
@@ -376,17 +377,32 @@ if (!response.ok) {
     ⭐ Rate This Video
   </button>
 
+
 <button
   type="button"
   className="share-video-button"
   onClick={async () => {
-    const shareUrl = video.videoUrl
+    const shareData = {
+      title: video.title,
+      text: `Check out this video: ${video.title}`,
+      url: video.videoUrl,
+    }
 
-    try {
-      await navigator.clipboard.writeText(shareUrl)
-      alert('Video link copied! Share it with your friends.')
-    } catch {
-      window.prompt('Copy this video link:', shareUrl)
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData)
+      } catch (error) {
+        if (error.name !== 'AbortError') {
+          alert('Unable to share this video. Please try again.')
+        }
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(video.videoUrl)
+        alert('Sharing is not supported here. Video link copied!')
+      } catch {
+        window.prompt('Copy this video link:', video.videoUrl)
+      }
     }
   }}
 >
