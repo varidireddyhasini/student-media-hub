@@ -376,6 +376,23 @@ if (!response.ok) {
     ⭐ Rate This Video
   </button>
 
+<button
+  type="button"
+  className="share-video-button"
+  onClick={async () => {
+    const shareUrl = video.videoUrl
+
+    try {
+      await navigator.clipboard.writeText(shareUrl)
+      alert('Video link copied! Share it with your friends.')
+    } catch {
+      window.prompt('Copy this video link:', shareUrl)
+    }
+  }}
+>
+  ↗ Share Video
+</button>
+
   <span>
     {video.reviews?.length ?? 0} reviews
    </span>
