@@ -254,23 +254,6 @@ if (!response.ok) {
             />
           </div>
           
-<div className="category-filters">
-  {[
-    'All',
-    ...new Set(videos.map((video) => video.field)),
-  ].map((item) => (
-    <button
-      key={item}
-      type="button"
-      className={`category-button ${
-        category === item ? 'active' : ''
-      }`}
-      onClick={() => setCategory(item)}
-    >
-      {item}
-    </button>
-  ))}
-</div>
 
 
           <div className="category-list">
